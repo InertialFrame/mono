@@ -33,6 +33,13 @@
     "site-react-e2e": {
       "tags": [],
       "implicitDependencies": ["site-react"]
+    },
+    "weather": {
+      "tags": []
+    },
+    "weather-e2e": {
+      "tags": [],
+      "implicitDependencies": ["weather"]
     }
   }
 }
