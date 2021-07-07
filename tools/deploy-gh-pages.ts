@@ -8,7 +8,6 @@ fs.writeFile(
 		if (err) return console.error('Error writing CNAME:', err);
 		ghpages.publish(
 			'./dist/apps/gh-pages',
-			{ push: false },
 			(err) => err && console.error('Error publishing:', err)
 		);
 	}
