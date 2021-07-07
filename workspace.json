@@ -1,23 +1,23 @@
 {
 	"version": 2,
 	"projects": {
-		"github-page": {
-			"root": "apps/github-page",
-			"sourceRoot": "apps/github-page/src",
+		"gh-pages": {
+			"root": "apps/gh-pages",
+			"sourceRoot": "apps/gh-pages/src",
 			"projectType": "application",
 			"targets": {
 				"build": {
 					"executor": "@nrwl/web:build",
 					"outputs": ["{options.outputPath}"],
 					"options": {
-						"outputPath": "dist/apps/github-page",
-						"index": "apps/github-page/src/index.html",
-						"main": "apps/github-page/src/main.tsx",
-						"polyfills": "apps/github-page/src/polyfills.ts",
-						"tsConfig": "apps/github-page/tsconfig.app.json",
+						"outputPath": "dist/apps/gh-pages",
+						"index": "apps/gh-pages/src/index.html",
+						"main": "apps/gh-pages/src/main.tsx",
+						"polyfills": "apps/gh-pages/src/polyfills.ts",
+						"tsConfig": "apps/gh-pages/tsconfig.app.json",
 						"assets": [
-							"apps/github-page/src/favicon.ico",
-							"apps/github-page/src/assets"
+							"apps/gh-pages/src/favicon.ico",
+							"apps/gh-pages/src/assets"
 						],
 						"styles": [],
 						"scripts": [],
@@ -27,8 +27,8 @@
 						"production": {
 							"fileReplacements": [
 								{
-									"replace": "apps/github-page/src/environments/environment.ts",
-									"with": "apps/github-page/src/environments/environment.prod.ts"
+									"replace": "apps/gh-pages/src/environments/environment.ts",
+									"with": "apps/gh-pages/src/environments/environment.prod.ts"
 								}
 							],
 							"optimization": true,
@@ -51,12 +51,12 @@
 				"serve": {
 					"executor": "@nrwl/web:dev-server",
 					"options": {
-						"buildTarget": "github-page:build",
+						"buildTarget": "gh-pages:build",
 						"hmr": true
 					},
 					"configurations": {
 						"production": {
-							"buildTarget": "github-page:build:production",
+							"buildTarget": "gh-pages:build:production",
 							"hmr": false
 						}
 					}
@@ -64,41 +64,41 @@
 				"lint": {
 					"executor": "@nrwl/linter:eslint",
 					"options": {
-						"lintFilePatterns": ["apps/github-page/**/*.{ts,tsx,js,jsx}"]
+						"lintFilePatterns": ["apps/gh-pages/**/*.{ts,tsx,js,jsx}"]
 					}
 				},
 				"test": {
 					"executor": "@nrwl/jest:jest",
-					"outputs": ["coverage/apps/github-page"],
+					"outputs": ["coverage/apps/gh-pages"],
 					"options": {
-						"jestConfig": "apps/github-page/jest.config.js",
+						"jestConfig": "apps/gh-pages/jest.config.js",
 						"passWithNoTests": true
 					}
 				}
 			}
 		},
-		"github-page-e2e": {
-			"root": "apps/github-page-e2e",
-			"sourceRoot": "apps/github-page-e2e/src",
+		"gh-pages-e2e": {
+			"root": "apps/gh-pages-e2e",
+			"sourceRoot": "apps/gh-pages-e2e/src",
 			"projectType": "application",
 			"targets": {
 				"e2e": {
 					"executor": "@nrwl/cypress:cypress",
 					"options": {
-						"cypressConfig": "apps/github-page-e2e/cypress.json",
-						"tsConfig": "apps/github-page-e2e/tsconfig.e2e.json",
-						"devServerTarget": "github-page:serve"
+						"cypressConfig": "apps/gh-pages-e2e/cypress.json",
+						"tsConfig": "apps/gh-pages-e2e/tsconfig.e2e.json",
+						"devServerTarget": "gh-pages:serve"
 					},
 					"configurations": {
 						"production": {
-							"devServerTarget": "github-page:serve:production"
+							"devServerTarget": "gh-pages:serve:production"
 						}
 					}
 				},
 				"lint": {
 					"executor": "@nrwl/linter:eslint",
 					"options": {
-						"lintFilePatterns": ["apps/github-page-e2e/**/*.{js,ts}"]
+						"lintFilePatterns": ["apps/gh-pages-e2e/**/*.{js,ts}"]
 					}
 				}
 			}

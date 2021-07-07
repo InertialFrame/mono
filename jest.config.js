@@ -1,3 +1,3 @@
 module.exports = {
-	projects: ['<rootDir>/apps/site-react', '<rootDir>/apps/github-page'],
+	projects: ['<rootDir>/apps/site-react', '<rootDir>/apps/gh-pages'],
 };

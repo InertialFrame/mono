@@ -27,12 +27,12 @@
 		]
 	},
 	"projects": {
-		"github-page": {
+		"gh-pages": {
 			"tags": []
 		},
-		"github-page-e2e": {
+		"gh-pages-e2e": {
 			"tags": [],
-			"implicitDependencies": ["github-page"]
+			"implicitDependencies": ["gh-pages"]
 		},
 		"site-react": {
 			"tags": []
