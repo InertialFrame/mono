@@ -1,45 +1,45 @@
 {
-  "npmScope": "inertial-frame",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
-  },
-  "projects": {
-    "site-react": {
-      "tags": []
-    },
-    "site-react-e2e": {
-      "tags": [],
-      "implicitDependencies": ["site-react"]
-    },
-    "weather": {
-      "tags": []
-    },
-    "weather-e2e": {
-      "tags": [],
-      "implicitDependencies": ["weather"]
-    }
-  }
+	"npmScope": "inertial-frame",
+	"affected": {
+		"defaultBase": "master"
+	},
+	"implicitDependencies": {
+		"package.json": {
+			"dependencies": "*",
+			"devDependencies": "*"
+		},
+		".eslintrc.json": "*"
+	},
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "@nrwl/workspace/tasks-runners/default",
+			"options": {
+				"cacheableOperations": ["build", "lint", "test", "e2e"]
+			}
+		}
+	},
+	"targetDependencies": {
+		"build": [
+			{
+				"target": "build",
+				"projects": "dependencies"
+			}
+		]
+	},
+	"projects": {
+		"github-page": {
+			"tags": []
+		},
+		"github-page-e2e": {
+			"tags": [],
+			"implicitDependencies": ["github-page"]
+		},
+		"site-react": {
+			"tags": []
+		},
+		"site-react-e2e": {
+			"tags": [],
+			"implicitDependencies": ["site-react"]
+		}
+	}
 }

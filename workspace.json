@@ -1,229 +1,229 @@
 {
-  "version": 2,
-  "projects": {
-    "site-react": {
-      "root": "apps/site-react",
-      "sourceRoot": "apps/site-react/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/site-react",
-            "index": "apps/site-react/src/index.html",
-            "main": "apps/site-react/src/main.tsx",
-            "polyfills": "apps/site-react/src/polyfills.ts",
-            "tsConfig": "apps/site-react/tsconfig.app.json",
-            "assets": [
-              "apps/site-react/src/favicon.ico",
-              "apps/site-react/src/assets"
-            ],
-            "styles": [],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/site-react/src/environments/environment.ts",
-                  "with": "apps/site-react/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "site-react:build",
-            "hmr": true
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "site-react:build:production",
-              "hmr": false
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/site-react/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/site-react"],
-          "options": {
-            "jestConfig": "apps/site-react/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "site-react-e2e": {
-      "root": "apps/site-react-e2e",
-      "sourceRoot": "apps/site-react-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/site-react-e2e/cypress.json",
-            "tsConfig": "apps/site-react-e2e/tsconfig.e2e.json",
-            "devServerTarget": "site-react:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "site-react:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/site-react-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "weather": {
-      "root": "apps/weather",
-      "sourceRoot": "apps/weather/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/weather",
-            "index": "apps/weather/src/index.html",
-            "main": "apps/weather/src/main.tsx",
-            "polyfills": "apps/weather/src/polyfills.ts",
-            "tsConfig": "apps/weather/tsconfig.app.json",
-            "assets": [
-              "apps/weather/src/favicon.ico",
-              "apps/weather/src/assets"
-            ],
-            "styles": [],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/weather/src/environments/environment.ts",
-                  "with": "apps/weather/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "weather:build",
-            "hmr": true
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "weather:build:production",
-              "hmr": false
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/weather/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/weather"],
-          "options": {
-            "jestConfig": "apps/weather/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "weather-e2e": {
-      "root": "apps/weather-e2e",
-      "sourceRoot": "apps/weather-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/weather-e2e/cypress.json",
-            "tsConfig": "apps/weather-e2e/tsconfig.e2e.json",
-            "devServerTarget": "weather:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "weather:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/weather-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "style": "styled-components",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "styled-components"
-      },
-      "library": {
-        "style": "styled-components",
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "site-react"
+	"version": 2,
+	"projects": {
+		"github-page": {
+			"root": "apps/github-page",
+			"sourceRoot": "apps/github-page/src",
+			"projectType": "application",
+			"targets": {
+				"build": {
+					"executor": "@nrwl/web:build",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/apps/github-page",
+						"index": "apps/github-page/src/index.html",
+						"main": "apps/github-page/src/main.tsx",
+						"polyfills": "apps/github-page/src/polyfills.ts",
+						"tsConfig": "apps/github-page/tsconfig.app.json",
+						"assets": [
+							"apps/github-page/src/favicon.ico",
+							"apps/github-page/src/assets"
+						],
+						"styles": [],
+						"scripts": [],
+						"webpackConfig": "@nrwl/react/plugins/webpack"
+					},
+					"configurations": {
+						"production": {
+							"fileReplacements": [
+								{
+									"replace": "apps/github-page/src/environments/environment.ts",
+									"with": "apps/github-page/src/environments/environment.prod.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": true,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								}
+							]
+						}
+					}
+				},
+				"serve": {
+					"executor": "@nrwl/web:dev-server",
+					"options": {
+						"buildTarget": "github-page:build",
+						"hmr": true
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "github-page:build:production",
+							"hmr": false
+						}
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/github-page/**/*.{ts,tsx,js,jsx}"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/apps/github-page"],
+					"options": {
+						"jestConfig": "apps/github-page/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"github-page-e2e": {
+			"root": "apps/github-page-e2e",
+			"sourceRoot": "apps/github-page-e2e/src",
+			"projectType": "application",
+			"targets": {
+				"e2e": {
+					"executor": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/github-page-e2e/cypress.json",
+						"tsConfig": "apps/github-page-e2e/tsconfig.e2e.json",
+						"devServerTarget": "github-page:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "github-page:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/github-page-e2e/**/*.{js,ts}"]
+					}
+				}
+			}
+		},
+		"site-react": {
+			"root": "apps/site-react",
+			"sourceRoot": "apps/site-react/src",
+			"projectType": "application",
+			"targets": {
+				"build": {
+					"executor": "@nrwl/web:build",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/apps/site-react",
+						"index": "apps/site-react/src/index.html",
+						"main": "apps/site-react/src/main.tsx",
+						"polyfills": "apps/site-react/src/polyfills.ts",
+						"tsConfig": "apps/site-react/tsconfig.app.json",
+						"assets": [
+							"apps/site-react/src/favicon.ico",
+							"apps/site-react/src/assets"
+						],
+						"styles": [],
+						"scripts": [],
+						"webpackConfig": "@nrwl/react/plugins/webpack"
+					},
+					"configurations": {
+						"production": {
+							"fileReplacements": [
+								{
+									"replace": "apps/site-react/src/environments/environment.ts",
+									"with": "apps/site-react/src/environments/environment.prod.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": true,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								}
+							]
+						}
+					}
+				},
+				"serve": {
+					"executor": "@nrwl/web:dev-server",
+					"options": {
+						"buildTarget": "site-react:build",
+						"hmr": true
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "site-react:build:production",
+							"hmr": false
+						}
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/site-react/**/*.{ts,tsx,js,jsx}"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/apps/site-react"],
+					"options": {
+						"jestConfig": "apps/site-react/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"site-react-e2e": {
+			"root": "apps/site-react-e2e",
+			"sourceRoot": "apps/site-react-e2e/src",
+			"projectType": "application",
+			"targets": {
+				"e2e": {
+					"executor": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/site-react-e2e/cypress.json",
+						"tsConfig": "apps/site-react-e2e/tsconfig.e2e.json",
+						"devServerTarget": "site-react:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "site-react:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/site-react-e2e/**/*.{js,ts}"]
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"defaultCollection": "@nrwl/react"
+	},
+	"generators": {
+		"@nrwl/react": {
+			"application": {
+				"style": "styled-components",
+				"linter": "eslint",
+				"babel": true
+			},
+			"component": {
+				"style": "styled-components"
+			},
+			"library": {
+				"style": "styled-components",
+				"linter": "eslint"
+			}
+		}
+	},
+	"defaultProject": "site-react"
 }
