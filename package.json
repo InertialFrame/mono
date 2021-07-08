@@ -11,6 +11,7 @@
     "e2e": "nx e2e",
     "predeploy:gh-pages": "npm run build gh-pages -- --prod",
     "deploy:gh-pages": "ts-node tools/deploy-gh-pages.ts",
+    "deploy": "npm run deploy:gh-pages",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
