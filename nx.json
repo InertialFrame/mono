@@ -40,6 +40,9 @@
 		"command-dialog": {
 			"tags": []
 		},
+		"common": {
+			"tags": []
+		},
 		"gh-pages": {
 			"tags": []
 		},

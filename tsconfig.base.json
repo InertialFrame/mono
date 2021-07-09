@@ -16,7 +16,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"@inertial-frame/any/angular": ["libs/any/angular/src/index.ts"],
-			"@inertial-frame/command-dialog": ["libs/command-dialog/src/index.ts"]
+			"@inertial-frame/command-dialog": ["libs/command-dialog/src/index.ts"],
+			"@inertial-frame/common": ["libs/common/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
