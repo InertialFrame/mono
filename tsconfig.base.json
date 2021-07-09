@@ -15,7 +15,8 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@inertial-frame/any/angular": ["libs/any/angular/src/index.ts"]
+			"@inertial-frame/any/angular": ["libs/any/angular/src/index.ts"],
+			"@inertial-frame/command-dialog": ["libs/command-dialog/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

@@ -9,7 +9,6 @@ export function CommandDialog<T extends InputCommandTree>(
 ) {
 	const [open, setOpen] = useState(false);
 	const [commandTree] = useState(() => new CommandTree(props.commands));
-	console.log('CommandTree:', commandTree);
 
 	useOpenOnKeyPress('/', open, setOpen);
 

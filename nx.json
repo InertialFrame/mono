@@ -37,6 +37,9 @@
 			"tags": [],
 			"implicitDependencies": ["any-angular-client"]
 		},
+		"command-dialog": {
+			"tags": []
+		},
 		"gh-pages": {
 			"tags": []
 		},

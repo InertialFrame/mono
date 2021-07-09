@@ -145,6 +145,27 @@
 				}
 			}
 		},
+		"command-dialog": {
+			"root": "libs/command-dialog",
+			"sourceRoot": "libs/command-dialog/src",
+			"projectType": "library",
+			"targets": {
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["libs/command-dialog/**/*.{ts,tsx,js,jsx}"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/command-dialog"],
+					"options": {
+						"jestConfig": "libs/command-dialog/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
 		"gh-pages": {
 			"root": "apps/gh-pages",
 			"sourceRoot": "apps/gh-pages/src",
