@@ -37,7 +37,7 @@ export default function TextFieldDialog(props: TextFieldDialogProps) {
 	return (
 		<Dialog
 			onClose={props.onClose}
-			aria-labelledby="simple-dialog-title"
+			aria-labelledby="command-dialog"
 			open={props.open}
 		>
 			<Box className={classes.container}>

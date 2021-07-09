@@ -1,7 +1,12 @@
-export type CommandHandler = () => void;
-export type CommandHandlers = Record<string, CommandHandler>;
+import { Maybe } from '../../utils/maybe';
 
-export interface CommandDialogProps<T extends CommandHandlers> {
+export type CommandHandler = () => unknown;
+
+export type InputCommandTree = {
+	[word: string]: InputCommandTree | CommandHandler;
+};
+
+export interface CommandDialogProps<T extends InputCommandTree> {
 	commands: T;
 }
 

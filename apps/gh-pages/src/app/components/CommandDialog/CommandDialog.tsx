@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { CommandDialogProps, CommandHandlers } from './types';
+import { CommandDialogProps, InputCommandTree } from './types';
 import { SetState } from '../../types/react';
 import TextFieldDialog from './TextFieldDialog';
+import { CommandTree } from './CommandNode';
 
-export function CommandDialog<T extends CommandHandlers>(
+export function CommandDialog<T extends InputCommandTree>(
 	props: CommandDialogProps<T>
 ) {
 	const [open, setOpen] = useState(false);
+	const [commandTree] = useState(() => new CommandTree(props.commands));
+	console.log('CommandTree:', commandTree);
+
 	useOpenOnKeyPress('/', open, setOpen);
 
 	const onClose = () => setOpen(false);
+
 	const onSubmit = (command: string) => {
-		const handler = props.commands[command];
-		if (!handler) {
-			// todo: display graphical alert https://material-ui.com/components/alert/
+		const ok = commandTree.call(command);
+		if (!ok) {
 			return console.warn(`[IF] Command not found: '${command}'`);
+			// todo: display graphical alert https://material-ui.com/components/alert/
 		}
-		handler();
 	};
 
 	if (!open) return null;
