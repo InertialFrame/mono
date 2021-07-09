@@ -7,12 +7,13 @@ export function CommandDialog<T extends CommandHandlers>(
 	props: CommandDialogProps<T>
 ) {
 	const [open, setOpen] = useState(false);
-	useOpenOnKeyPress('/', setOpen);
+	useOpenOnKeyPress('/', open, setOpen);
 
 	const onClose = () => setOpen(false);
 	const onSubmit = (command: string) => {
 		const handler = props.commands[command];
 		if (!handler) {
+			// todo: display graphical alert https://material-ui.com/components/alert/
 			return console.warn(`[IF] Command not found: '${command}'`);
 		}
 		handler();
@@ -22,8 +23,13 @@ export function CommandDialog<T extends CommandHandlers>(
 	return <TextFieldDialog open={open} onSubmit={onSubmit} onClose={onClose} />;
 }
 
-function useOpenOnKeyPress(key: string, setOpen: SetState<boolean>) {
+function useOpenOnKeyPress(
+	key: string,
+	open: boolean,
+	setOpen: SetState<boolean>
+) {
 	useEffect(() => {
+		if (open) return;
 		const handler = (event: KeyboardEvent) => {
 			if (event.key === key) {
 				setOpen(true);
@@ -32,5 +38,5 @@ function useOpenOnKeyPress(key: string, setOpen: SetState<boolean>) {
 		};
 		window.addEventListener('keypress', handler);
 		return () => window.removeEventListener('keypress', handler);
-	}, [key]);
+	}, [key, open]);
 }
