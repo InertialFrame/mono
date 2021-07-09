@@ -6,5 +6,6 @@ module.exports = {
 		'<rootDir>/libs/command-dialog',
 		'<rootDir>/libs/common',
 		'<rootDir>/apps/graphql-api',
+		'<rootDir>/apps/nest-api',
 	],
 };

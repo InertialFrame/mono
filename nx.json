@@ -52,6 +52,9 @@
 		},
 		"graphql-api": {
 			"tags": []
+		},
+		"nest-api": {
+			"tags": []
 		}
 	}
 }
