@@ -1,8 +1,6 @@
-import { TextFieldDialogProps } from './types';
 import React, { useState, KeyboardEvent } from 'react';
-import { TextFieldChangeEvent } from '../../types/react';
-import isKeyPress from '../../guards/isKeyPress';
 import { Box, Dialog, makeStyles, TextField } from '@material-ui/core';
+import { isKeyPress, TextFieldChangeEvent } from '@inertial-frame/common';
 
 const useStyles = makeStyles((theme) => ({
 	container: {},
@@ -12,6 +10,12 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 }));
+
+export interface TextFieldDialogProps {
+	open: boolean;
+	onClose: () => void;
+	onSubmit: (value: string) => void;
+}
 
 export default function TextFieldDialog(props: TextFieldDialogProps) {
 	const classes = useStyles();

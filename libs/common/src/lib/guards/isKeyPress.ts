@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function isKeyPress(
+export function isKeyPress(
 	event: Event | React.SyntheticEvent
 ): event is KeyboardEvent {
 	const nativeEvent = 'nativeEvent' in event ? event.nativeEvent : event;

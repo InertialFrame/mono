@@ -1,5 +1,5 @@
 import { CommandHandler, InputCommandTree } from './types';
-import { CommandTree } from './CommandNode';
+import { CommandTree } from './command-tree';
 
 export function isCommandHandler(
 	x: CommandTree | CommandHandler | InputCommandTree

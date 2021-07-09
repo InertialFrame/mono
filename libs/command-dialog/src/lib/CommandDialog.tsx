@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { CommandDialogProps, InputCommandTree } from './types';
-import { SetState } from '../../types/react';
-import TextFieldDialog from './TextFieldDialog';
-import { CommandTree } from './CommandNode';
+import TextFieldDialog from './components/TextFieldDialog';
+import { CommandTree } from './command-tree';
+import { SetState } from '@inertial-frame/common';
 
 export function CommandDialog<T extends InputCommandTree>(
 	props: CommandDialogProps<T>
@@ -41,5 +41,5 @@ function useOpenOnKeyPress(
 		};
 		window.addEventListener('keypress', handler);
 		return () => window.removeEventListener('keypress', handler);
-	}, [key, open]);
+	}, [key, open, setOpen]);
 }

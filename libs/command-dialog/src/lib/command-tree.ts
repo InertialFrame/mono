@@ -1,6 +1,6 @@
 import { CommandHandler, InputCommandTree } from './types';
-import { isCommandHandler } from './command.guard';
-import { Maybe } from '../../utils/maybe';
+import { isCommandHandler } from './guards';
+import { Maybe } from '@inertial-frame/common';
 
 interface Nodes {
 	[word: string]: Maybe<CommandTree | CommandHandler>;

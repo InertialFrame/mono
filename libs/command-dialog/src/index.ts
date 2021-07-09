@@ -1,1 +1,2 @@
-export * from './lib/command-dialog';
+export * from './lib/CommandDialog';
+export type { CommandDialogProps, InputCommandTree } from './lib/types';
