@@ -49,6 +49,9 @@
 		"gh-pages-e2e": {
 			"tags": [],
 			"implicitDependencies": ["gh-pages"]
+		},
+		"graphql-api": {
+			"tags": []
 		}
 	}
 }

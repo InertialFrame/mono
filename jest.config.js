@@ -5,5 +5,6 @@ module.exports = {
 		'<rootDir>/apps/any/angular',
 		'<rootDir>/libs/command-dialog',
 		'<rootDir>/libs/common',
+		'<rootDir>/apps/graphql-api',
 	],
 };
