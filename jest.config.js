@@ -1,3 +1,7 @@
 module.exports = {
-	projects: ['<rootDir>/apps/gh-pages'],
+	projects: [
+		'<rootDir>/apps/gh-pages',
+		'<rootDir>/libs/angular/anything',
+		'<rootDir>/apps/any/angular',
+	],
 };

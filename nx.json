@@ -27,6 +27,16 @@
 		]
 	},
 	"projects": {
+		"any-angular": {
+			"tags": []
+		},
+		"any-angular-client": {
+			"tags": []
+		},
+		"any-angular-client-e2e": {
+			"tags": [],
+			"implicitDependencies": ["any-angular-client"]
+		},
 		"gh-pages": {
 			"tags": []
 		},
