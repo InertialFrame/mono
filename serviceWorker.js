@@ -1,1 +1,104 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{"4Vuh":function(t,e,n){"use strict";n.r(e);const c="::yourserviceworker";self.addEventListener("install",(function(t){t.waitUntil(caches.open("v0.0.1"+c).then((function(t){return t.addAll(["/","/offline"])})))})),self.addEventListener("activate",(function(t){t.waitUntil(caches.keys().then((function(t){return Promise.all(t.filter((function(t){return 0!==t.indexOf("v0.0.1")})).map((function(t){return caches.delete(t)})))})))})),self.addEventListener("fetch",(function(t){var e,n;const i=t.request;"GET"!==i.method&&t.respondWith(fetch(i).catch((function(){return caches.match("/offline")}))),-1!==(null===(e=i.headers.get("Accept"))||void 0===e?void 0:e.indexOf("text/html"))&&i.url.startsWith(this.origin)&&t.respondWith(fetch(i).then((function(t){const e=t.clone();return caches.open("v0.0.1"+c).then((function(t){t.put(i,e)})),t})).catch((function(){return caches.match(i).then((function(t){return t||caches.match("/offline")}))}))),-1===(null===(n=i.headers.get("Accept"))||void 0===n?void 0:n.indexOf("text/plain"))&&i.url.startsWith(this.origin)&&t.respondWith(caches.match(i).then(async t=>null!=t?t:await fetch(i).then((function(t){var e;const n=t.clone();return-1===(null===(e=n.headers.get("Content-Type"))||void 0===e?void 0:e.indexOf("text/plain"))&&caches.open("v0.0.1"+c).then((function(t){t.put(i,n)})),t})).catch((function(){var t;null===(t=i.headers.get("Accept"))||void 0===t||t.indexOf("image")}))))}))}}]);
+/// <reference lib="WebWorker" />
+
+// export empty type because of tsc --isolatedModules flag
+// export type {};
+// let self;
+
+const cacheName = '::yourserviceworker';
+const version = 'v0.0.1';
+
+self.addEventListener('install', function (event) {
+	event.waitUntil(
+		caches.open(version + cacheName).then(function (cache) {
+			return cache.addAll(['/', '/offline']);
+		})
+	);
+});
+
+self.addEventListener('activate', function (event) {
+	event.waitUntil(
+		caches.keys().then(function (keys) {
+			// Remove caches whose name is no longer valid
+			return Promise.all(
+				keys
+					.filter(function (key) {
+						return key.indexOf(version) !== 0;
+					})
+					.map(function (key) {
+						return caches.delete(key);
+					})
+			);
+		})
+	);
+});
+
+self.addEventListener('fetch', function (event) {
+	const request = event.request;
+
+	// Always fetch non-GET requests from the network
+	if (request.method !== 'GET') {
+		event.respondWith(
+			fetch(request).catch(function () {
+				return caches.match('/offline');
+			})
+		);
+	}
+
+	// For HTML requests, try the network first, fall back to the cache,
+	// finally the offline page
+	if (
+		request.headers.get('Accept')?.indexOf('text/html') !== -1 &&
+		request.url.startsWith(this.origin)
+	) {
+		// The request is text/html, so respond by caching the
+		// item or showing the /offline offline
+		event.respondWith(
+			fetch(request)
+				.then(function (response) {
+					// Stash a copy of this page in the cache
+					const copy = response.clone();
+					caches.open(version + cacheName).then(function (cache) {
+						cache.put(request, copy);
+					});
+					return response;
+				})
+				.catch(function () {
+					return caches.match(request).then(function (response) {
+						// return the cache response or the /offline page.
+						return response || caches.match('/offline');
+					});
+				})
+		);
+	}
+
+	// For non-HTML requests, look in the cache first, fall back to the network
+	if (
+		request.headers.get('Accept')?.indexOf('text/plain') === -1 &&
+		request.url.startsWith(this.origin)
+	) {
+		event.respondWith(
+			caches.match(request).then(async (cachedResponse) => {
+				return (
+					cachedResponse ??
+					((await fetch(request)
+						.then(function (response) {
+							const copy = response.clone();
+							if (
+								copy.headers.get('Content-Type')?.indexOf('text/plain') === -1
+							) {
+								caches.open(version + cacheName).then(function (cache) {
+									cache.put(request, copy);
+								});
+							}
+							return response;
+						})
+						.catch(function () {
+							if (request.headers.get('Accept')?.indexOf('image') !== -1) {
+								// you can return an image placeholder here with
+							}
+						}))
+				);
+			})
+		);
+	}
+});
