@@ -80,7 +80,7 @@ self.addEventListener('fetch', function (event) {
 			caches.match(request).then(async (cachedResponse) => {
 				return (
 					cachedResponse ??
-					((await fetch(request)
+					(await fetch(request)
 						.then(function (response) {
 							const copy = response.clone();
 							if (
