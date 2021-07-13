@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{zElQ:function(n,o,c){"use strict";c.r(o),c.d(o,"default",(function(){return t}));var e=c("r0ML");function t(n,...o){Object(e.useEffect)(()=>{console.log(...o)},n)}}}]);
