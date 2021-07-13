@@ -8,14 +8,16 @@ const cacheName = '::yourserviceworker';
 const version = 'v0.0.1';
 
 self.addEventListener('install', function (event) {
-	event.waitUntil(
-		caches.open(version + cacheName).then(function (cache) {
-			return cache.addAll(['/', '/offline']);
-		})
-	);
+	console.log('install event:', event);
+	// event.waitUntil(
+	// 	caches.open(version + cacheName).then(function (cache) {
+	// 		return cache.addAll(['/', '/offline']);
+	// 	})
+	// );
 });
 
 self.addEventListener('activate', function (event) {
+	console.log('activate event:', event);
 	event.waitUntil(
 		caches.keys().then(function (keys) {
 			// Remove caches whose name is no longer valid
@@ -33,6 +35,7 @@ self.addEventListener('activate', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
+	console.log('fetch event:', event);
 	const request = event.request;
 
 	// Always fetch non-GET requests from the network
