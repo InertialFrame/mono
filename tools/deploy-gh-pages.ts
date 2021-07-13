@@ -8,7 +8,18 @@ fs.copyFileSync(
 	'./dist/apps/gh-pages/manifest.json'
 );
 
+fs.copyFileSync(
+	'./apps/gh-pages/serviceWorker.js',
+	'./dist/apps/gh-pages/serviceWorker.js'
+);
+
+fs.copyFileSync(
+	'./apps/gh-pages/src/script.js',
+	'./dist/apps/gh-pages/script.js'
+);
+
 ghpages.publish(
 	'./dist/apps/gh-pages',
+	// { push: false },
 	(err) => err && console.error('Error publishing:', err)
 );
