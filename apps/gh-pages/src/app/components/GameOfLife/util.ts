@@ -1,11 +1,3 @@
-export function* gridElements<T>(grid: readonly T[][]) {
-	for (let x = 0; x < grid.length; x++) {
-		for (let y = 0; y < grid[x].length; y++) {
-			yield { grid, cell: grid[x][y], x, y };
-		}
-	}
-}
-
 export function forEach<T>(
 	grid: readonly T[][],
 	fn: (x: number, y: number) => void,
