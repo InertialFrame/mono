@@ -12,6 +12,7 @@ export function App() {
 				<Route path={Routes.Root} exact component={RootPage} />
 				<Route path={Routes.Weather} exact component={WeatherPage} />
 				<Route path={Routes.GameOfLife} exact component={ExperimentalPage} />
+				<Route path={Routes.Experimental} exact component={ExperimentalPage} />
 			</Switch>
 			<CommandDialog />
 		</HashRouter>

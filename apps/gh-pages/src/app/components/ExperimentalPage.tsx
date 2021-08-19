@@ -1,10 +1,11 @@
 import { Box } from '@material-ui/core';
-import { GameOfLife } from './GameOfLife/GameOfLife';
+import Editor from './Editor/Editor';
 
 export function ExperimentalPage() {
 	return (
 		<Box style={{ height: '100%', display: 'grid' }}>
-			<GameOfLife />
+			{/*<GameOfLife />*/}
+			<Editor />
 		</Box>
 	);
 }
